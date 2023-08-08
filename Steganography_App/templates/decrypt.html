@@ -6,7 +6,29 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Document</title>
+		<title>Decrypt - Image</title>
 	</head>
-	<body></body>
+	<body>
+		{% include 'navigate.html' %}
+		<div class="container">
+			<h1 class="text-center">Decrypt Image</h1>
+			<form
+				method="post"
+				action="{%url 'encrypt' %}"
+				enctype="multipart/form-data"
+			>
+				{% csrf_token %}
+				<div class="form-group">
+					<label>Upload Encypted Image</label>
+					<input
+						type="file"
+						name="image"
+						class="form-control-file"
+						required
+					/>
+				</div>
+				<button class="btn btn-primary">Decrypt</button>
+			</form>
+		</div>
+	</body>
 </html>
