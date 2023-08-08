@@ -14,7 +14,7 @@
 			<h1 class="text-center">Decrypt Image</h1>
 			<form
 				method="post"
-				action="{%url 'encrypt' %}"
+				action="{%url 'decrypt' %}"
 				enctype="multipart/form-data"
 			>
 				{% csrf_token %}
@@ -28,6 +28,15 @@
 					/>
 				</div>
 				<button class="btn btn-primary">Decrypt</button>
+				<div class="text-center">
+					{% if text %}
+					<p>Decrypted Text</p>
+					<textarea style="resize: none; text-align: left">
+				{{text}}
+				</textarea
+					>
+					{% endif %}
+				</div>
 			</form>
 		</div>
 	</body>
